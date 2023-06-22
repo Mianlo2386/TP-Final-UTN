@@ -1,0 +1,58 @@
+.NewCollection {
+    background-image: url(../img/componenteMiddle.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    margin-top: 8%;
+}
+
+.contenedorNewCollection {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 8% 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--ColorTextoPrincipal);
+}
+.contenedorNewCollection h1{
+    color: var(--ColorTextoPrincipal);
+}
+.nombreColeccion {
+    text-transform: capitalize;
+}
+
+.contenedorNewCollection p {
+    width: 45%;
+    font-size: 12px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    color: var(--ColorTextoPrincipal);
+}
+
+.btnNewCollection {
+    width: 18%;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    margin-top: 12px;
+    color: var(--ColorTextoPrincipal);
+    background-color: transparent;
+    border: 1px solid var(--ColorTextoPrincipal);
+}
+
+.btnNewCollection:hover {
+    border: 1px solid var(--ColorTextoSecundario);
+    color: var(--ColorTextoSecundario);
+}
+
+@media(max-width:900px) {
+    .contenedorNewCollection p {
+        width: 80%;
+    }
+
+    .btnNewCollection {
+        width: 100%;
+    }
+}

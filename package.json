@@ -1,0 +1,32 @@
+{
+  "name": "tp-final-utn",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mianlo2386/TP-Final-UTN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mianlo2386/TP-Final-UTN/issues"
+  },
+  "homepage": "https://github.com/Mianlo2386/TP-Final-UTN#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "bootstrap-icons": "^1.10.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "path": "^0.12.7"
+  }
+}

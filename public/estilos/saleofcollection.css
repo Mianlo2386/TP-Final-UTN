@@ -1,0 +1,44 @@
+.contenedorBSellers{
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+    
+}
+.bsellersItem{
+    width: 24%;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.itemVacio{
+    visibility: hidden;
+}
+
+@media(max-width:900px){
+    .contenedorBSellers{
+        padding-top: 5%;
+    }
+    .bsellersItem{
+        width: 47.7%;
+    }
+    .bsellersItem .precio{
+        text-align: end;
+    }
+    .itemVacio{
+        display: none;
+    }
+    .lastItem{
+        width: 100%;
+    }
+}
+
+@media(max-width:360px){
+    .bsellersItem .contenedorTextos{
+        flex-direction: column;
+        gap: 2px;
+    }
+    .bsellersItem .precio{
+        text-align: start;
+    }
+}

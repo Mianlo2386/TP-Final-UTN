@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ColorTextoPrincipal: #fff;
+  --ColorTextoSecundario: rgb(251, 150, 24);
+  --ColorTextoTerciario: rgb(65, 62, 49);
+  --ColorFooter: rgb(12, 13, 13);
+
+}
+
+h1 {
+  font-size: 25px;
+  color: #000;
+  font-weight: bold;
+}
+
+.contenedorPrincipal{
+  background-color: var(--ColorTextoPrincipal);
+  height: auto;
+  padding-top: 6%;
+}
+
+.contenedorSecundario{
+  padding-bottom: 2%;
+  padding-left: 0;
+  padding-right: 0;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+/* box */
+.boxLamps {
+  position: relative;
+}
+
+.boxLamps img {
+  width: 100%;
+  height: 300px;
+  border: 1px solid rgb(221, 220, 215);
+  border-radius: 1px;
+}
+
+.boxLamps .medidas {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 10px;
+  color: #757575;
+}
+
+.contenedorTextos {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2%;
+}
+
+.marca {
+  flex: 2;
+  margin-bottom: 0;
+}
+
+.marca,
+.precio {
+  font-weight: bold;
+  color: #000;
+}
+
+.precioAntes {
+  text-decoration: line-through;
+  font-size: .72rem;
+  color: #696969;
+  margin-left: 1%;
+}
+
+.creador {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--ColorTextoTerciario);
+  padding-top: 2%;
+  width: 80%;
+}
+
+
+.boxLeft {
+  width: 40%;
+  height: 21.875rem;
+  margin-right: 8%;
+  cursor: pointer;
+}
+
+.boxLeft img {
+  object-fit: cover;
+}
+
+.boxRight {
+  width: 24%;
+  height: 21.875rem;
+  cursor: pointer;
+}
+
+.boxRight img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.boxDown {
+  width: 50%;
+  cursor: pointer;
+}
+
+.boxDown img {
+  object-fit: cover;
+}
+
+
+
+@media(max-width:768px) {
+  .contenedorBox {
+    padding-top: 5%;
+    gap: 2%;
+  }
+
+  .boxLeft {
+    margin-right: 0;
+  }
+
+  .boxLeft,
+  .boxRight {
+    width: 47.7%;
+    margin-bottom: 4%;
+  }
+
+  .boxRight img {
+    height: 300px;
+  }
+
+  .boxDown {
+    width: 47.7%;
+    margin-bottom: 4%;
+    order: 1;
+  }
+
+}
+
+@media(max-width:500px) {
+
+  .boxLeft,
+  .boxRight,
+  .boxDown {
+    width: 100%;
+    margin-bottom: 10%;
+  }
+
+}

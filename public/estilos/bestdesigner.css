@@ -1,0 +1,27 @@
+.boxLeftDiseniador,.boxRightDiseniador{
+    height: 40rem;
+    cursor: pointer;
+}
+
+.boxLeftDiseniador img,
+.boxRightDiseniador img{
+    height: 80%;
+}
+
+.boxLeftDiseniador {
+    width: 40%;
+    margin-right: 8%;
+}
+
+.boxRightDiseniador {
+    width: 50%;
+}
+
+.nombreDiseniador {
+    color: var(--ColorTextoSecundario);
+}
+.descripcionDiseniador{
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+}
