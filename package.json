@@ -1,32 +1,22 @@
 {
-  "name": "tp-final-utn",
+  "name": "nodejsmysql",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "main": "index.js",
+  "description": "conexion mysql desde nodejs",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mianlo2386/TP-Final-UTN.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Mianlo2386/TP-Final-UTN/issues"
-  },
-  "homepage": "https://github.com/Mianlo2386/TP-Final-UTN#readme",
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "bootstrap-icons": "^1.10.5",
-    "dotenv": "^16.3.1",
+    "alertify.js": "^1.0.12",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.1.4",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mongoose": "^7.3.1",
-    "morgan": "^1.10.0",
-    "passport": "^0.6.0",
-    "path": "^0.12.7"
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mongodb": "^5.6.0",
+    "mysql": "^2.18.1"
   }
 }

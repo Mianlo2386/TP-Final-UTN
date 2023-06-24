@@ -1,0 +1,40 @@
+<div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3>Inicio de Sesion</h3>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top w-25" src="resources/img/user.png" alt="">
+                <form action="auth" method="post">
+                    <div class="my-3">
+                        <input class="form-control" name="user" id="user" type="text" placeholder="Usuario">
+                    </div>
+                    <div class="my-3">
+                        <input class="form-control" name="pass" id="pass" type="password" placeholder="Contraseña">
+                    </div>
+                    <div class="d-grid gap-1">
+                        <input class="btn btn-dark" type="submit" value="Ingresar">
+                    </div>
+                </form>
+                <div class="d-grid gap-1">
+                    <a href="registrar" class="btn btn-register">Registrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<% if (typeof alert != "undefined") { %>
+    <script>
+        Swal.fire({
+            title: '<%= alertTitle %>',
+            text: '<%= alertMessage %>',
+            icon: '<%= alertIcon %>',
+            showConfirmButton: '<%= showConfirmButton %>',
+            timer: '<%= timer %>'
+        }).then(()=>{
+            window.location='/<%= ruta %>'
+        })
+    </script>
+  <% } %>
