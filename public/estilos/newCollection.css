@@ -2,8 +2,7 @@
     background-image: url(../img/componenteMiddle.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 70vh;
-    margin-top: 8%;
+    height: auto;
 }
 
 .contenedorNewCollection {

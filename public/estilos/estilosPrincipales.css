@@ -30,6 +30,7 @@ h1 {
 }
 
 .contenedorSecundario{
+  height: auto;
   padding-bottom: 2%;
   padding-left: 0;
   padding-right: 0;

@@ -1,15 +1,19 @@
-.boxLeftDiseniador,.boxRightDiseniador{
-    height: 40rem;
+.boxLeftDiseniador,
+.boxRightDiseniador {
+    height: auto;
+    padding-bottom: 4%;
     cursor: pointer;
 }
 
 .boxLeftDiseniador img,
-.boxRightDiseniador img{
-    height: 80%;
+.boxRightDiseniador img {
+    height: 65%;
+    object-fit: cover;
 }
 
 .boxLeftDiseniador {
     width: 40%;
+    height: auto;
     margin-right: 8%;
 }
 
@@ -20,7 +24,8 @@
 .nombreDiseniador {
     color: var(--ColorTextoSecundario);
 }
-.descripcionDiseniador{
+
+.descripcionDiseniador {
     color: #000;
     font-size: 12px;
     font-weight: 600;
