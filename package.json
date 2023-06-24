@@ -1,29 +1,23 @@
 {
-  "name": "final-eccomerce",
+  "name": "nodejsmysql",
   "version": "1.0.0",
-  "description": "",
+  "description": "conexion mysql desde nodejs",
   "type": "module",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "async": "^3.2.4",
-    "body-parser": "^1.20.2",
-    "bootstrap-icons": "^1.10.5",
-    "cheerio": "^1.0.0-rc.12",
-    "crypto": "^1.0.1",
-    "dotenv": "^16.0.3",
+    "alertify.js": "^1.0.12",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.1.4",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
-    "mongoose": "^7.2.1",
-    "morgan": "^1.10.0",
-    "passport": "^0.6.0",
-    "path": "^0.12.7",
-    "puppeteer": "^20.4.0"
+    "mongodb": "^5.6.0",
+    "mysql": "^2.18.1"
   }
 }

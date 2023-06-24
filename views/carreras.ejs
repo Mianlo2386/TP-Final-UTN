@@ -1,0 +1,103 @@
+<%-include('../views/partials/head.ejs') %>
+    <%-include('../views/partials/header.ejs') %>
+
+        <div class="container-fluid d-flex justify-content-center contenedorPrincipal" id="inicio">
+            <div class="container w-75 d-flex contenedorSecundario carreras">
+                <div class="contenedorCarrera">
+                    <img src="/img/Lamparas/lampara.jpg" alt="">
+                    <div class="textoCarrera">
+                        <h3>nombre diseñador</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, voluptatem maxime? Distinctio
+                            recusandae in quaerat doloribus ab, excepturi ducimus omnis. Eum quos est commodi earum,
+                            dicta consectetur mollitia! Minus, saepe.</p>
+                    </div>
+                </div>
+                <div class="productosDiseniador">
+                    <h3>productos de ...</h3>
+                    <div class="contenedorProductDiseniadores">
+                        <div class="boxLamps">
+                            <img src="/img/Lamparas/lampara.jpg" alt="" />
+                            <p class="medidas">{medidas}</p>
+                            <div class="contenedorTextos">
+                                <p class="marca">{marca}</p>
+                                <p class="precio">${precioActual}</p>
+                                <p class="precioAntes">{precio}</p>
+                                <p class="creador">{creador}</p>
+                            </div>
+                        </div>
+                        <div class="boxLamps">
+                            <img src="/img/Lamparas/lampara.jpg" alt="" />
+                            <p class="medidas">{medidas}</p>
+                            <div class="contenedorTextos">
+                                <p class="marca">{marca}</p>
+                                <p class="precio">${precioActual}</p>
+                                <p class="precioAntes">{precio}</p>
+                                <p class="creador">{creador}</p>
+                            </div>
+                        </div>
+                        <div class="boxLamps">
+                            <img src="/img/Lamparas/lampara.jpg" alt="" />
+                            <p class="medidas">{medidas}</p>
+                            <div class="contenedorTextos">
+                                <p class="marca">{marca}</p>
+                                <p class="precio">${precioActual}</p>
+                                <p class="precioAntes">{precio}</p>
+                                <p class="creador">{creador}</p>
+                            </div>
+                        </div>
+                        <div class="boxLamps">
+                            <img src="/img/Lamparas/lampara.jpg" alt="" />
+                            <p class="medidas">{medidas}</p>
+                            <div class="contenedorTextos">
+                                <p class="marca">{marca}</p>
+                                <p class="precio">${precioActual}</p>
+                                <p class="precioAntes">{precio}</p>
+                                <p class="creador">{creador}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenedorProductDiseniadores contenedorOculto" id="contenedorOculto">
+                        <div class="boxLamps">
+                            <img src="/img/Lamparas/lampara.jpg" alt="" />
+                            <p class="medidas">{medidas}</p>
+                            <div class="contenedorTextos">
+                                <p class="marca">{marca}</p>
+                                <p class="precio">${precioActual}</p>
+                                <p class="precioAntes">{precio}</p>
+                                <p class="creador">{creador}</p>
+                            </div>
+                        </div>
+                        <div class="boxLamps">
+                            <img src="/img/Lamparas/lampara.jpg" alt="" />
+                            <p class="medidas">{medidas}</p>
+                            <div class="contenedorTextos">
+                                <p class="marca">{marca}</p>
+                                <p class="precio">${precioActual}</p>
+                                <p class="precioAntes">{precio}</p>
+                                <p class="creador">{creador}</p>
+                            </div>
+                        </div>
+                        <div class="boxLamps">
+                            <img src="/img/Lamparas/lampara.jpg" alt="" />
+                            <p class="medidas">{medidas}</p>
+                            <div class="contenedorTextos">
+                                <p class="marca">{marca}</p>
+                                <p class="precio">${precioActual}</p>
+                                <p class="precioAntes">{precio}</p>
+                                <p class="creador">{creador}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btnCarreras" id="btnCarreras" onclick="contenedorVisible()">ver más</button>
+                
+
+            </div>
+        </div>
+
+
+        <script src="/js/app.js"></script>
+        <script src="/js/carreras.js"></script>
+
+        <%-include('../views/partials/footer.ejs') %>

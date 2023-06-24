@@ -1,0 +1,230 @@
+.hero {
+    background-image: url(../img/HeroBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.contenedorHero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.titleHero {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    font-size: 6.25rem;
+    font-weight: bold;
+    margin-top: 6%;
+    z-index: 10;
+    color: var(--ColorTextoSecundario);
+}
+
+.contenedorLamp {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    z-index: 1;
+    font-family: 'Spline Sans', sans-serif;
+    text-align: center;
+    line-height: 1.25rem;
+}
+
+/* lamparas izquierda */
+.contenedorLampsLeft {
+    display: flex;
+    width: 65%;
+}
+
+.contenedorInfo {
+    height: auto;
+    align-items: center;
+}
+
+.contenedorInfo:nth-child(1) {
+    margin-left: 16%;
+}
+
+.firstImgHero {
+    height: 52%;
+}
+
+.contenedorInfo:nth-child(2) {
+    margin-left: 18%;
+}
+
+.secondImgHero {
+    height: 55%;
+}
+
+
+.contenedorTexto {
+    position: absolute;
+    top: 15px;
+    z-index: 10;
+}
+
+.contenedorTexto .medidas {
+    color: var(--ColorTextoTerciario);
+    font-size: .75rem;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+#firstLamp p{
+    color: var(--ColorTextoPrincipal);
+}
+
+.contenedorTexto .nombreLamp,
+.diseñador,
+.precio {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0;
+}
+
+
+.contenedorTextoIluminacion {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.iluminacion {
+    width: 6.875rem;
+    height: 11.25rem;
+    background: linear-gradient(to bottom, #f2f2f2, transparent);
+    border-radius: 5px;
+    filter: blur(10px);
+    transform: perspective(250px) rotateX(60deg);
+    transform-origin: top center;
+}
+
+/* efecto sobre primera lampara */
+.contenedorInfo:hover .firstImgHero {
+    content: url("/img/Lamparas/Hero/lamp 1 on.png");
+}
+
+.contenedorInfo:hover .iluminadionFirstImg {
+    display: block;
+}
+.contenedorInfo:hover #firstLamp .nombreLamp,
+.contenedorInfo:hover #firstLamp .diseñador,
+.contenedorInfo:hover #firstLamp .precio {
+    color: #000;
+}
+
+.contenedorInfo:hover #firstLamp .medidas{
+    color: var(--ColorTextoTerciario);
+}
+
+
+.iluminadionFirstImg {
+    display: none;
+
+}
+
+/* lampara derecha */
+.lampRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    align-items: center;
+    width: 35%;
+}
+
+
+.lampRight img {
+    height: 50%;
+}
+
+.textoHero {
+    width: 100%;
+    margin-top: .625rem;
+    color: var(--ColorTextoPrincipal);
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.25rem;
+}
+
+.btnCatalog {
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    margin-top: 12px;
+    color: #000;
+    background-color: var(--ColorTextoPrincipal);
+    border: none;
+
+}
+
+.btnCatalog:hover {
+    background-color: var(--ColorTextoSecundario);
+    color: var(--ColorTextoPrincipal);
+}
+
+@media(max-width:1200px){
+    .titleHero{
+        font-size: 5rem;
+    }
+}
+
+@media(max-width:900px) {
+    .contenedorHero {
+        align-items: center;
+        height: 80vh;
+    }
+
+    .contenedorLampsLeft{
+        display: none;
+    }
+    .titleHero {
+        margin-top: 10%;
+        text-align: left;
+    }
+
+    .lampRight {
+        width: 100%;
+    }
+
+    .lampRight .textoHero {
+        width: 100%;
+    }
+
+    .lampRight img {
+        height: 65%;
+    }
+}
+
+
+@media(max-width:508px){
+   .textoHero{
+    display: none;
+   }
+   .lampRight{
+    gap: 3.75rem;
+   }
+   .btnCatalog{
+    width: 100%;
+   }
+    
+}
+@media(max-width:480px){
+    .titleHero{
+        font-size: 4rem;
+    }
+}
+@media(max-width:360px){
+    .titleHero{
+        font-size: 3rem;
+    }
+}

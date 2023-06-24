@@ -1,0 +1,110 @@
+.carreras {
+    margin: 3.5rem 0;
+    color: #000;
+    flex-direction: column;
+}
+
+.carreras h3{
+    font-weight: bold;
+}
+
+.contenedorCarrera {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+.contenedorCarrera img {
+    width: 45%;
+    border: 1px solid rgb(221, 220, 215);
+}
+
+.textoCarrera {
+    width: 50%;
+}
+
+
+.textoCarrera h3{
+    text-transform: capitalize;
+}
+.textoCarrera p{
+    font-size: 14px;
+    color: #000;
+}
+
+.productosDiseniador{
+    padding-top: 8%;
+}
+
+.contenedorProductDiseniadores{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2% 0;
+}
+
+.contenedorProductDiseniadores .boxLamps{
+    width: 24%;
+}
+
+.btnCarreras{
+    font-size: 12px;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 15%;
+    padding: 12px;
+    color: var(--ColorTextoPrincipal);
+    background-color: #000;
+    border: 1px solid #000;
+}
+
+.btnCarreras:hover{
+    background-color: var(--ColorTextoPrincipal);
+    color: #000;
+    border: 1px solid #696969;
+}
+
+.contenedorOculto{
+    display: none;
+}
+
+.visible{
+    display: flex;
+}
+
+
+@media(max-width:768px){
+    .carreras{
+        margin-bottom: 8%;
+    }
+    .contenedorCarrera img,.textoCarrera{
+        width: 100%;
+    }
+
+    .textoCarrera{
+        margin-top: 1.25rem;
+    }
+
+    .contenedorProductDiseniadores .boxLamps{
+        width: 32%;
+    }
+    .contenedorProductDiseniadores .boxLamps:last-child{
+        display: none;
+    }
+    .btnCarreras{
+        display: none;
+    }
+}
+
+@media(max-width:500px){
+    .contenedorProductDiseniadores{
+        flex-direction: column;
+    }
+    .contenedorProductDiseniadores .boxLamps{
+        width: 100%;
+    }
+}

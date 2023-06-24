@@ -1,0 +1,30 @@
+.contenedorProductos{
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+}
+.tipoLampara,.empotradas{
+    cursor: pointer;
+}
+.boxLamps{
+    overflow: hidden;
+}
+.contenedorProductos .boxLamps img{
+    transition: transform 0.3s;
+}
+
+.contenedorProductos .boxLamps img:hover{
+    transform: scale(1.018);
+}
+
+.contenedorProductos .marca{
+    padding-top: 2%;
+}
+
+
+@media(max-width:768px){
+    .empotradas{
+        width: 100%;
+    }
+}

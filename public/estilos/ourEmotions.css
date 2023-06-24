@@ -1,0 +1,77 @@
+.OurEmotions {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.contenedorOurEmotions {
+    display: flex;
+    align-items: center;
+    gap: 9%;
+}
+
+.cuentaIg {
+    color: var(--ColorTextoSecundario);
+}
+
+.contenedorImg {
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgEmotions {
+    display: flex;
+    justify-content: space-between;
+    height: 15.625rem;
+}
+.imgEmotions:first-child{
+    width: 43%;
+}
+
+.imgEmotions:first-child img{
+    object-fit: cover;
+}
+.imgEmotions:last-child{
+    width: 50%;
+}
+
+.imgEmotions img {
+    height: 100%;
+}
+
+.imgEmotions .primerImg {
+    width: 26%;
+}
+
+.imgEmotions .segundaImg {
+    width: 70.8%;
+}
+
+@media(max-width:768px) {
+    .contenedorOurEmotions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contenedorImg{
+        padding-top: 2%;
+        width: 100%;
+    }
+    .imgEmotions:first-child{
+        width: 100%;
+    }
+    .imgEmotions .segundaImg {
+        width: 26%;
+    }
+    
+    .imgEmotions .primerImg {
+        width: 70.8%;
+    }
+    
+    .imgEmotions:last-child{
+        display: none;
+    }
+}

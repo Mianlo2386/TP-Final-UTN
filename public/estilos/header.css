@@ -1,0 +1,127 @@
+.header {
+    padding-top: 1%;
+    height: 3.6875rem;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    background-color: transparent;
+}
+
+.contenedorHeader {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    padding: 0;
+}
+
+.headerNavbar {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.navLeft,
+.navRight {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.navLeft li {
+    list-style: none;
+}
+
+.navLeft li:last-child a {
+    margin-right: 0;
+}
+
+.enlaces {
+    margin-right: 2.1875rem;
+    text-decoration: none;
+    color: var(--ColorTextoPrincipal);
+    font-size: .875rem;
+    font-weight: bold;
+}
+
+.enlaces:hover {
+    color: var(--ColorTextoSecundario);
+}
+.enlacesActive{
+    color: var(--ColorTextoSecundario);
+}
+
+
+.logo {
+    color: var(--ColorTextoPrincipal);
+    font-size: 20px;
+    margin: 0;
+}
+
+.navRight li:last-child a {
+    margin-right: 0;
+}
+
+.navRight li {
+    list-style: none;
+}
+
+.hamburguesa {
+    display: none;
+}
+
+/* click hamburguesa */
+.headerBg{
+    background-color: var(--ColorTextoPrincipal);
+}
+
+.cambioTextoColor{
+    color: #000;
+}
+
+
+@media(max-width:900px) {
+    .contenedorHeader{
+       padding-left: 0;
+       padding-right: 0;
+    }
+    .logo {
+        text-align: left;
+    }
+
+    .navLeft {
+        display: none;
+    }
+
+    .active {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 40%;
+        height: 80vh;
+        position: absolute;
+        top: 3.6875rem;
+        right: 2%;
+        gap: 1.25rem;
+        background-color: var(--ColorTextoPrincipal);
+
+      }
+    
+      .active a {
+        font-size: 1.25rem;
+        text-align: center;
+        margin: 0;
+        color: #000;
+      }
+
+    .hamburguesa {
+        display: block;
+        padding-left: 5%;
+    }
+}
+
+@media(max-width:500px) {
+    .contenedorHeader {
+        display: flex;
+        justify-content: space-between;
+    }
+
+}

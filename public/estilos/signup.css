@@ -1,0 +1,98 @@
+.contenedorSignUp {
+    padding: 8% 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Inter', sans-serif;
+}
+
+.suscripcion {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.suscripcion p {
+    font-size: 14px;
+    color: var(--ColorFooter);
+    font-weight: 500
+}
+.form{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.emailForm {
+    width: 80%;
+    padding: 10px;
+    margin-right: 3%;
+    background-color: transparent;
+    border: 1px solid #757575;
+    outline-color: var(--ColorTextoSecundario);
+}
+
+.btnForm {
+    width: 22%;
+    padding: 4px 10px;
+    background-color: transparent;
+    border: 1px solid #757575;
+    color: #757575;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.btnForm:hover {
+    color: var(--ColorTextoSecundario);
+    border: 1px solid var(--ColorTextoSecundario);
+
+}
+
+.creadoresSignUp {
+    width: 50%;
+    cursor: pointer;
+}
+.contenedorSignUp img{
+    object-fit: cover;
+}
+
+.creadoresSignUp .creador {
+    color: var(--ColorTextoSecundario);
+    font-weight: bold;
+    width: 100%;
+    padding: 0;
+    padding-top: 2%;
+}
+
+
+@media(max-width:768px) {
+    .contenedorSignUp {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .suscripcion,
+    .creadores {
+        width: 100%;
+        padding-bottom: 5%;
+    }
+
+    .creadoresSignUp{
+        width: 100%;
+    }
+}
+
+@media(max-width:500px) {
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .emailForm {
+        width: 100%;
+        margin-bottom: 5%;
+    }
+}
