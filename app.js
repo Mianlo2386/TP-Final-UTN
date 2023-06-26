@@ -1,5 +1,3 @@
-
-
 // invocamos a express
 const express = require('express')
 const app = express()
@@ -13,11 +11,11 @@ app.use(express.json());
 
 // Invocamos a dotenv
 const dotenv = require('dotenv');
-dotenv.config({ path: './env/.env' });
+dotenv.config({ path: './.env' });
 
 
 // Directirio public
-//app.use(express.static('public'))
+app.use(express.static('public'))
 app.use('/resources', express.static('public'));
 app.use('/resources', express.static(__dirname + 'public'));
 
@@ -47,9 +45,21 @@ app.get('/login', (req, res) => {
 
 // registracion
 
+// app.get('/', (req, res) => {
+//         res.render('home')
+//  })
+
 app.get('/registrar', (req, res) => {
     res.render('registrar')
 })
+
+app.get('/carreras',(req,res) => {
+    res.render('carreras')
+})
+
+// app.get('*/',(req,res)=>{
+//     res.render('error')
+// })
 
 app.post('/registrar', async (req, res) => {
     const user = req.body.user;
@@ -211,12 +221,12 @@ app.post('/auth', async (req, res) => {
 
 app.get('/', (req, res) => {
     if (req.session.loggedin) {
-        res.render('inicio', {
+        res.render('home', {
             login: true,
             name: req.session.name
         });
     } else {
-        res.render('inicio', {
+        res.render('home', {
             login: false,
             name: 'Debe iniciar session'
         })
