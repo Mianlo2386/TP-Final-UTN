@@ -1,0 +1,51 @@
+<div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3>Registracion</h3>
+            </div>
+            <div class="card-body text-center">
+                <!--<img class="card-img-top w-25" src="resources/img/user.png" alt="">-->
+                <form action="registrar" method="post">
+                    <div class="my-3">
+                        <label for="user">Usuario</label>
+                        <input class="form-control" name="user" id="user" type="text" required>
+                    </div>
+                    <div class="my-3">
+                        <label for="name">Nombre Completo</label>
+                        <input class="form-control" name="name" id="name" type="text" required>
+                    </div>
+                    <div class="my-3">
+                        <label for="rol">Rol</label>
+                        <select name="rol" id="rol" class="select.css">
+                            <option value="admin">Admin</option>
+                            <option value="data entry">Usuario</option>
+                        </select>
+                    </div>
+                    <div class="my-3">
+                        <label for="pass">Contraseña</label>
+                        <input class="form-control" name="pass" id="pass" type="password" required>
+                    </div>
+                    <div class="" style="display: inline;">
+                        <a href="/" class="btn btn-danger">Cancelar</a>
+                        <input class="btn btn-dark" type="submit" value="Guardar">
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<% if (typeof alert != "undefined") { %>
+    <script>
+        Swal.fire({
+            title: '<%= alertTitle %>',
+            text: '<%= alertMessage %>',
+            icon: '<%= alertIcon %>',
+            showConfirmButton: '<%= showConfirmButton %>',
+            timer: '<%= timer %>'
+        }).then(()=>{
+            window.location='/<%= ruta %>'
+        })
+    </script>
+  <% } %>

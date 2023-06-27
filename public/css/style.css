@@ -1,0 +1,51 @@
+body{
+    background-color: #c6a94f;
+}
+
+/*
+.top-img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all .4s ease;
+    margin-top: 55px;
+    margin-left: 75px;
+    width: 538;
+    height: 524px;
+  }
+
+  .top-img:hover{
+    opacity: 1;
+  }
+*/
+  .btn-register{
+    margin-top: 15px;
+    background-color: dimgrey;
+    color: #ffffff;
+  }
+
+  .inicio{
+    display: flex;
+  }
+
+  .button-container{
+    display:inline-block;
+    position:relative;
+    }
+    
+    .button-container a{
+    position: absolute;
+    bottom:4em;
+    right:4em;
+    background-color:#8F0005;
+    border-radius:1.5em;
+    color:white;
+    text-transform:uppercase;
+    padding:1em 1.5em;
+    }
+
+    .ubicacion{
+      margin: -500px 0px 0px 735px;
+    }
+

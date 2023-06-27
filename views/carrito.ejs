@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <table class="table table-bordered">
+                <tbody>
+                    <% var suma=0; productos.forEach(function(producto) { %>
+                        <tr>                        
+                            <td>        
+                                <img src="resources/img/<%= producto.imagen %>" class="card-img-top w-26" alt="..."></td>
+                            <td>
+                                <div class="">
+                                    <p class="card-title"><%= producto.nombre %></p>
+                                    <p class="card-text"><strong><%= producto.autor %></strong></p>
+                                    <p class="card-text"><%= producto.precio %></p> 
+                                    <% suma = suma +  producto.precio %>
+                                    <p class="card-text"> <%= producto.cantidad %></p>  
+                                </div>                           
+                            </td>                          
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form action="comprar" method="post">
+                        <h3>Informacion de Contacto</h3>
+                        <div>
+                            <input type="text" name="apellido" placeholder="Apellido y Nombre" class="form-control">                    
+                        </div>
+                        <div>
+                            <input type="text" name="direccion" placeholder="Direccion" class="form-control">
+                        </div>
+                        <div>
+                            <input type="email" name="mail" placeholder="Mail" class="form-control">
+                        </div>
+                        <h3>Forma de Pago</h3>
+                        <div>
+                            <input name="efectivo" type="radio" value="efectivo" />Efectivo
+                        </div>
+                        <div>
+                            <input name="tcredito" type="radio" value="tcredito" />Tarjeta de Credito
+                        </div>                
+                        <h3>Tipo de Envio</h3>
+                        <div>
+                            <input name="retirar" type="radio" value="retirar" />Retirar Local
+                        </div>
+                        <div>
+                            <input name="correo" type="radio" value="correo" />Correo Argentino
+                        </div>     
+                        <h3>Total</h3>
+                        <div>
+                            <label>Subtotal: $  <%= suma %></label>
+                            <label>Comision: $ 0.00</label>
+                            <label><strong> $ <%= suma %></strong></label>
+                        </div>
+                        <div> 
+                            <% var formaPago="efectivo"; var tipoEnvio="local" %>                           
+                            <a href="/comprar/{<%= suma %>,<%= formaPago %>,<%= tipoEnvio %>}" class="btn btn-dark">Pagar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<% if (typeof alert != "undefined") { %>
+    <script>
+        Swal.fire({
+            title: '<%= alertTitle %>',
+            text: '<%= alertMessage %>',
+            icon: '<%= alertIcon %>',
+            showConfirmButton: '<%= showConfirmButton %>',
+            timer: '<%= timer %>'
+        }).then(()=>{
+            window.location='/<%= ruta %>'
+        })
+    </script>
+  <% } %>
