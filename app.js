@@ -73,7 +73,7 @@ app.use(express.json());
 
 // Invocamos a dotenv
 const dotenv = require('dotenv');
-dotenv.config({path:'./env/.env'});
+dotenv.config();
 
 // Directirio public
 //app.use(express.static('public'))
