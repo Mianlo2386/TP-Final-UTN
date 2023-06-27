@@ -1,145 +1,123 @@
-/*var mysql=require('mysql');
 
-var conexion = mysql.createConnection({
-    host: 'localhost',
-    database: 'bdliga',
-    user: 'root',
-    password:''
-});
-
-conexion.connect(function(error){
-    if(error){
-        throw error;
-    }else{
-        console.log('conexion exitosa');
-    }
-});
-
-MOSTRAR todos los campos
-
-conexion.query('select * from rol', function(error,results,fields){
-    if(error)
-    throw error;
-
-    results.forEach(result => {
-        console.log(result);
-    });
-})
-
-conexion.query('select * from rol', function(error,filas){
-    if(error){
-    throw error;
-    }else{
-        filas.forEach(fila => {
-            console.log(fila);   
-        });
-    }
-})
-*/
-
-// INSERTAR
-/* conexion.query('insert into rol (rol) values ("invitado")', function(error, results){
-    if(error) throw error;
-    console.log('Registro agregado', results);
-}); */
-
-// ACTUALIZAR
-/* conexion.query('update rol set rol="vitao" where idrol=3',function(error,results){
-    if(error) throw error;
-    console.log('Registro actualizado!!', results);
-}); 
-
-
-//BORRAR
-conexion.query('delete from rol where idrol=3',function(error,results){
-    if(error) throw error;
-    console.log('Registro eliminado', results);
-});
-
-conexion.end();*/
-
-// ======= INICIO DEL SERVIDOR
 
 // invocamos a express
 const express = require('express')
-const app= express()
+const app = express()
 
 //invocamos a express-ejs-layouts
 const expressLayouts = require('express-ejs-layouts')
 
 // seteamos urlencoded para capturar los datos del formulario
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Invocamos a dotenv
 const dotenv = require('dotenv');
 dotenv.config();
 
+
 // Directirio public
-//app.use(express.static('public'))
-app.use('/resources',express.static('public'));
-app.use('/resources',express.static(__dirname + 'public'));
+app.use(express.static('public'))
+app.use('/resources', express.static('public'));
+app.use('/resources', express.static(__dirname + 'public'));
 
 // establecer el motor de plantillas ejs - 
-app.set('view engine','ejs')
+app.set('view engine', 'ejs')
 app.use(expressLayouts)
-
 
 // invocamos a bcryptjs
 const bcryptjs = require('bcryptjs');
 
 // variables de session
-const session= require('express-session');
+const session = require('express-session');
 app.use(session({
-    secret:'secret',
-    resave:true,
-    saveUninitialized:true
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 }));
 
 // invocamos al modulo de la base de datos
-const connection=require('./database/db');
+const mongoDB = require('./database/db_mongo').Mongo
 
 // estableciendo las rutas
 
-app.get('/login',(req,res)=>{
+app.get('/login', (req, res) => {
     res.render('login')
 })
 
 // registracion
 
-app.get('/registrar',(req,res)=>{
+// app.get('/', (req, res) => {
+//         res.render('home')
+//  })
+
+app.get('/registrar', (req, res) => {
     res.render('registrar')
 })
 
-app.post('/registrar',async (req,res)=>{
-    const user= req.body.user;
-    const name= req.body.name;
-    const rol= req.body.rol;    
-    const pass= req.body.pass;
-    let passwordHash = await bcryptjs.hash(pass,8);
-    connection.query('INSERT INTO user SET ?',{user:user, name:name, rol:rol, pass:passwordHash},async(error,results)=>{
-        if(error){
-            console.log(error);
-        }else{
-            //res.send('ALTA EXITOSA')
-            res.render('registrar',{
-                alert:true,
-                alertTitle: "Registracion",
-                alertMessage: "Registracion Exitosa",
-                alertIcon: 'success',
-                showConfirmButton:false,
-                timer:1600,
-                ruta:''
-            })
-        }
-    })
+app.get('/carreras',(req,res) => {
+    res.render('carreras')
 })
 
-app.get('/contacto',(req,res)=>{
+// app.get('*/',(req,res)=>{
+//     res.render('error')
+// })
+
+app.post('/registrar', async (req, res) => {
+    const user = req.body.user;
+    const name = req.body.name;
+    const rol = req.body.rol;
+    const pass = req.body.pass;
+    let passwordHash = await bcryptjs.hash(pass, 8);
+
+    try {
+        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+
+        await mongo.connect()
+
+        const result = mongo.insert({
+            name,
+            user,
+            rol,
+            pass: passwordHash,
+        }, 'users')
+
+        res.render('registrar', {
+            alert: true,
+            alertTitle: "Registracion",
+            alertMessage: "Registracion Exitosa",
+            alertIcon: 'success',
+            showConfirmButton: false,
+            timer: 1600,
+            ruta: ''
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ status: -1, message: 'Hubo un error interno en el server' })
+    }
+    // connection.query('INSERT INTO user SET ?', { user: user, name: name, rol: rol, pass: passwordHash }, async (error, results) => {
+    //     if (error) {
+    //         console.log(error);
+    //     } else {
+    //         //res.send('ALTA EXITOSA')
+    //         res.render('registrar', {
+    //             alert: true,
+    //             alertTitle: "Registracion",
+    //             alertMessage: "Registracion Exitosa",
+    //             alertIcon: 'success',
+    //             showConfirmButton: false,
+    //             timer: 1600,
+    //             ruta: ''
+    //         })
+    //     }
+    // })
+})
+
+app.get('/contacto', (req, res) => {
     res.render('contacto')
 })
 
-app.get('/designer',(req,res)=>{
+app.get('/designer', (req, res) => {
     res.render('designer')
 })
 
@@ -160,48 +138,98 @@ app.get('/shop',(req,res)=>{
       });
 })
 
+
+
 // autenticacion
 
-app.post('/auth', async(req,res)=>{
-    const user=req.body.user;
-    const pass=req.body.pass;
-    let passwordHash= await bcryptjs.hash(pass,8);
-    if(user && pass){
-        connection.query('SELECT * FROM user WHERE user = ?',[user], async (error,results)=>{
-            if(results.length==0 || !(await bcryptjs.compare(pass,results[0].pass))){
-                res.render('login',{
-                    alert:true,
-                    alertTitle: "Error",
-                    alertMessage: "Usuario y/o Contraseña Incorrectas",
-                    alertIcon: 'error',
-                    showConfirmButton:false,
-                    timer:1800,
-                    ruta:'login'
-                })
-            }else{
+app.post('/auth', async (req, res) => {
+    const user = req.body.user;
+    const pass = req.body.pass;
+    console.log(user)
+    console.log(pass)
+    // let passwordHash = await bcryptjs.hash(pass, 8);
+    // console.log(passwordHash)
+    if (user && pass) {
+        try {
+            const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+
+            await mongo.connect()
+
+            const results = await mongo.getCollection('users')
+            const found = results.find(async (el) => {
+                let match = await bcryptjs.compare(pass,el.pass)
+                return el.user == user &&  match
+
+            })
+            if (found) {
+
                 req.session.loggedin = true
-                req.session.name=results[0].name
-                req.session.id=results[0].idU
-                res.render('login',{
-                    alert:true,
+                req.session.name = results[0].name
+                res.render('login', {
+                    alert: true,
                     alertTitle: "Conexion Exitosa",
                     alertMessage: "Acceso Correcto",
                     alertIcon: 'success',
-                    showConfirmButton:false,
-                    timer:1800,
-                    ruta:''
+                    showConfirmButton: false,
+                    timer: 1800,
+                    ruta: ''
+
                 })
+
+            } else {
+
+                res.render('login', {
+                    alert: true,
+                    alertTitle: "Error",
+                    alertMessage: "Usuario y/o Contraseña Incorrectas",
+                    alertIcon: 'error',
+                    showConfirmButton: false,
+                    timer: 1800,
+                    ruta: 'login'
+
+                })
+
+        
             }
-        })
-    }else{
-        res.render('login',{
-            alert:true,
+
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ status: -1, message: 'Se produjo error interno' })
+        }
+        //  connection.query('SELECT * FROM user WHERE user = ?',[user], async (error,results)=>{
+        //     if(results.length==0 || !(await bcryptjs.compare(pass,results[0].pass))){
+        //         res.render('login',{
+        //             alert:true,
+        //             alertTitle: "Error",
+        //             alertMessage: "Usuario y/o Contraseña Incorrectas",
+        //             alertIcon: 'error',
+        //             showConfirmButton:false,
+        //             timer:1800,
+        //             ruta:'login'
+        //         })
+        //     }else{
+        //         req.session.loggedin = true
+        //         req.session.name=results[0].name
+        //         res.render('login',{
+        //             alert:true,
+        //             alertTitle: "Conexion Exitosa",
+        //             alertMessage: "Acceso Correcto",
+        //             alertIcon: 'success',
+        //             showConfirmButton:false,
+        //             timer:1800,
+        //             ruta:''
+        //         })
+        //     }
+        //})
+    } else {
+        res.render('login', {
+            alert: true,
             alertTitle: "Advertencia",
             alertMessage: "Ingrese un usuario y/o contraseña",
             alertIcon: 'warning',
-            showConfirmButton:false,
-            timer:1800,
-            ruta:'login'
+            showConfirmButton: false,
+            timer: 1800,
+            ruta: 'login'
         })
     }
 })
@@ -214,14 +242,14 @@ app.get('/',(req,res)=>{
         const user = req.session.name        
         connection.query('SELECT COUNT(*) as cantidad FROM carrito WHERE idCliente = ?',[user], async (error,results)=>{            
             if(results[0].cantidad!=0){
-                res.render('inicio',{
+                res.render('home',{
                     carrito:true,
                     cantidad:results[0].cantidad,
                     login:true,
                     name:req.session.name
                 });
             }else{
-                res.render('inicio',{
+                res.render('home',{
                     carrito: false,
                     login:true,
                     name:req.session.name
@@ -229,17 +257,17 @@ app.get('/',(req,res)=>{
             }
         });
     }else{
-        res.render('inicio',{
+        res.render('home',{
             login:false,
-            //name:'Debe iniciar session'
-            name:''
+            name:'Debe iniciar session'
+        
         })
     }
 })
 
 // logout
-app.get('/logout',(req,res)=>{
-    req.session.destroy(()=>{
+app.get('/logout', (req, res) => {
+    req.session.destroy(() => {
         res.redirect('/')
     })
 })
@@ -352,6 +380,6 @@ app.get('/productos', (req, res) => {
     });
   });
 */
-app.listen(3000, ()=>{
+app.listen(3050, ()=>{
     console.log('Servidor ejecutandose')
 })

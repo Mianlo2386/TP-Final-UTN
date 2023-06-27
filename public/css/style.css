@@ -2,7 +2,6 @@ body{
     background-color: #c6a94f;
 }
 
-/*
 .top-img{
     position: absolute;
     left: 0;
@@ -11,14 +10,13 @@ body{
     transition: all .4s ease;
     margin-top: 55px;
     margin-left: 75px;
-    width: 538;
-    height: 524px;
+    /*width: 1100px;
+    height: 585px;  */
   }
 
   .top-img:hover{
     opacity: 1;
   }
-*/
   .btn-register{
     margin-top: 15px;
     background-color: dimgrey;

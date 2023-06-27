@@ -1,0 +1,37 @@
+.diseniadores{
+    margin-top: 3.5rem;
+}
+.contenedorDiseniadores{
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin-top: 3%;
+}
+
+.boxDiseniador{
+    width: 24%;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.diseniador{
+    font-weight: 600;
+    color: #000;
+}
+
+
+@media(max-width:768px){
+    .boxDiseniador{
+        width: 47.7%;
+        margin-bottom: 4%;
+    }
+}
+
+@media(max-width:500px){
+    .contenedorDiseniadores{
+        margin-top: 4%;
+    }
+    .boxDiseniador{
+        width: 100%;
+    }
+}
