@@ -72,8 +72,8 @@ app.post('/registrar', async (req, res) => {
 
         res.render('registrar', {
             alert: true,
-            alertTitle: "Registracion",
-            alertMessage: "Registracion Exitosa",
+            alertTitle: "Registracion",//cambiaria esto x "registro"
+            alertMessage: "Registracion Exitosa",//idem
             alertIcon: 'success',
             showConfirmButton: false,
             timer: 1600,
@@ -124,7 +124,10 @@ app.post('/auth', async (req, res) => {
     // console.log(passwordHash)
     if (user && pass) {
         try {
-            const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+            const mongo = new mongoDB(
+                process.env.DB_HOST,// path??
+                 process.env.DB_DATABASE
+                 )
 
             await mongo.connect()
 
@@ -230,6 +233,6 @@ app.get('/logout', (req, res) => {
     })
 })
 
-app.listen(3050, () => {
+app.listen(3050, () => { //.env???
     console.log('Servidor ejecutandose')
 })
