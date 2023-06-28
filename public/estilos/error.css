@@ -1,0 +1,45 @@
+.error{
+    background-image: url(../img/error.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    align-items: center;
+}
+
+.contenedorError{
+    flex-direction: column;
+    padding-top: 5%;
+}
+.textoError{
+    margin-bottom: 13%;
+}
+
+.textoError h1{
+    font-size: 35px;
+    margin-bottom: 2%;
+}
+
+.textoError p{
+    font-size: 14px;
+    width: 30%;
+    margin-bottom: 30px;
+}
+.textoError h1,p{
+    color: var(--ColorTextoPrincipal);
+}
+
+.copyrigthError{
+    font-size: 10px;
+}
+
+@media(max-width:900px){
+    .textoError p{
+        width: 100%;
+    }
+}
+
+@media(max-width:400px){
+    .contenedorError{
+        padding-top: 25%;
+    }
+}
