@@ -66,6 +66,7 @@ app.get('/buscador',(req,res) => {
 })
 
 
+
 app.post('/registrar', async (req, res) => {
     const user = req.body.user;
     const name = req.body.name;
