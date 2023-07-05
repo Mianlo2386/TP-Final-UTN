@@ -1,0 +1,38 @@
+.boxBestDiseniador {
+    height: auto;
+    padding-bottom: 2.5rem;
+    cursor: pointer;
+}
+
+.boxBestDiseniador img{
+    height: 25rem;
+    object-fit: cover;
+}
+
+.boxBestDiseniador:nth-child(1) {
+    width: 40%;
+    margin-right: 4rem;
+}
+
+.boxBestDiseniador:last-child {
+    width: 50%;
+}
+
+.nombreDiseniador {
+    color: var(--ColorTextoSecundario);
+}
+
+.descripcionDiseniador {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+@media(max-width:768px){
+    .boxBestDiseniador:nth-child(n){
+        width: 100%;
+        margin-right: 0;
+    }
+    .boxBestDiseniador img{
+        height: 18.75rem;
+    }
+}

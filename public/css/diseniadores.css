@@ -1,0 +1,55 @@
+.diseniadores{
+    margin-top: 3.5rem;
+}
+.contenedorDiseniadores{
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin-top: 1.875rem;
+}
+
+.boxDiseniador:nth-child(n){
+    width: 24%;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+}
+.boxDiseniador:nth-child(n) img{
+    height: 17rem;
+    object-fit: cover;
+}
+
+.boxDiseniador:nth-child(5){
+    width: 50%;
+}
+.boxDiseniador:nth-child(12){
+    width: 65%;
+}
+
+.boxDiseniador:nth-child(5) img,
+.boxDiseniador:nth-child(12) img{
+    height: 20rem;
+}
+
+.diseniador{
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+
+@media(max-width:768px){
+    .boxDiseniador:nth-child(n){
+        width: 47.7%;
+    }
+}
+
+@media(max-width:500px){
+    .contenedorDiseniadores{
+        margin-top: 1.25rem;
+    }
+    .boxDiseniador:nth-child(n){
+        width: 100%;
+    }
+    .boxDiseniador:nth-child(n) img{
+        height: 17rem;
+    }
+}

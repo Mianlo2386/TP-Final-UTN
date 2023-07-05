@@ -23,8 +23,8 @@
 .contenedorNewCollection p {
     width: 45%;
     font-size: 12px;
-    margin-top: 2%;
-    margin-bottom: 1%;
+    margin-top: 1.25rem;
+    margin-bottom: .625rem;
     color: var(--ColorTextoPrincipal);
 }
 
@@ -34,8 +34,8 @@
     font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 12px 30px;
-    margin-top: 12px;
+    padding: .75rem 1.875rem;
+    margin-top: .75rem;
     color: var(--ColorTextoPrincipal);
     background-color: transparent;
     border: 1px solid var(--ColorTextoPrincipal);

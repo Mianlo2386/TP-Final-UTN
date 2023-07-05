@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 
 //invocamos a express-ejs-layouts
-const expressLayouts = require('express-ejs-layouts')
+// const expressLayouts = require('express-ejs-layouts')
 
 // seteamos urlencoded para capturar los datos del formulario
 app.use(express.urlencoded({ extended: false }));
@@ -21,7 +21,7 @@ app.use('/resources', express.static(__dirname + 'public'));
 
 // establecer el motor de plantillas ejs - 
 app.set('view engine', 'ejs')
-app.use(expressLayouts)
+// app.use(expressLayouts)
 
 // invocamos a bcryptjs
 const bcryptjs = require('bcryptjs');
@@ -57,9 +57,14 @@ app.get('/carreras',(req,res) => {
     res.render('carreras')
 })
 
-// app.get('*/',(req,res)=>{
-//     res.render('error')
-// })
+app.get('/producto',(req,res) => {
+    res.render('paginaProducto')
+})
+
+app.get('/buscador',(req,res) => {
+    res.render('buscador')
+})
+
 
 app.post('/registrar', async (req, res) => {
     const user = req.body.user;
@@ -115,12 +120,12 @@ app.get('/contacto', (req, res) => {
     res.render('contacto')
 })
 
-app.get('/designer', (req, res) => {
-    res.render('designer')
+app.get('/diseniadores', (req, res) => {
+    res.render('diseniadores')
 })
 
-app.get('/shop', (req, res) => {
-    res.render('shop')
+app.get('/comercio', (req, res) => {
+    res.render('comercio')
 })
 
 // autenticacion
@@ -228,7 +233,7 @@ app.get('/', (req, res) => {
     } else {
         res.render('home', {
             login: false,
-            name: 'Debe iniciar session'
+            name:req.session.name
         })
     }
 })
@@ -238,6 +243,10 @@ app.get('/logout', (req, res) => {
     req.session.destroy(() => {
         res.redirect('/')
     })
+})
+
+app.get('*/',(req,res)=>{
+    res.render('error')
 })
 
 app.listen(3050, () => {

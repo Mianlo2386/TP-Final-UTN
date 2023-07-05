@@ -1,0 +1,98 @@
+<%-include('./partials/head.ejs') %>
+  <%-include('./partials/header.ejs') %>
+
+    <div class="container-fluid d-flex justify-content-center contenedorPrincipal">
+      <div class="container w-75 contenedorSecundario paginaProducto">
+        <div class="d-flex contenedorInfoProductos">
+          <h3 class="tituloOculto">nombre producto</h3>
+          <img src="/img/Lamparas/lampara.jpg" alt="">
+          <div class="infoProductos">
+            <h3>nombre producto</h3>
+            <p>$ precio <span class="descuento">$descuento</span></p>
+            <div class="d-flex flex-wrap boxBtn">
+              <button class="btnProductos">-</button>
+              <input type="text" name="cantidad" id="" class="cantidad">
+              <button class="btnProductos">+</button>
+              <a href="" class="btnCarrito">Agregar al carrito</a>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    descripción
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>descripcion producto</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    información detallada
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <h4>Categoria</h4>
+                    <p>hola</p>
+                    <h4>Dimensiones</h4>
+                    <p>hola</p>
+                    <h4>Fuente de luz</h4>
+                    <p>hola</p>
+                    <h4>Voltaje</h4>
+                    <p>hola</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    pruebas y certificaciones
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>pruebas y certificaciones de producto</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="galeriaProductos">
+          <!-- mostrar solo 5 productos de c/diseñador -->
+          <%for(let i=0;i<=4;i++){%>
+            <img src="/img/Lamparas/lampara.jpg" alt="">
+          <%}%>
+        </div>
+        <div class="infoDiseniadorProducto">
+          <h3>diseñado por nombre diseñador</h3>
+          <div class="d-flex justify-content-between boxInfoDiseniadorProducto">
+            <img src="/img/Lamparas/lampara.jpg" alt="">
+            <div class="d-flex infoDiseniador">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis possimus animi non qui. Autem alias, ut illo dolores qui voluptatibus delectus, ex accusantium omnis fuga impedit, minima amet sit iusto.</p>
+              <a href="/carreras" class="btnCarrito">Conoce más</a>
+            </div>
+          </div>
+        </div>
+        <div class="productosRelacionados">
+          <h3>productos relacionados</h3>
+          <div class="d-flex justify-content-between boxRelacionados">
+            <!-- mostrar solo 4 productos relacionados -->
+            <%for(let i=1;i<=4;i++){%>
+              <%-include('./partials/lampProduct.ejs')%>
+            <%}%>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/paginaProducto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

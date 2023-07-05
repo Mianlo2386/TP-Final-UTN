@@ -1,5 +1,5 @@
-<%-include('../views/partials/head.ejs') %>
-    <%-include('../views/partials/header.ejs') %>
+<%-include('./partials/head.ejs') %>
+<%-include('./partials/header.ejs') %>
 
         <div class="container-fluid d-flex justify-content-center contenedorPrincipal" id="inicio">
             <div class="container w-75 d-flex contenedorSecundario carreras">
@@ -13,80 +13,18 @@
                     </div>
                 </div>
                 <div class="productosDiseniador">
-                    <h3>productos de ...</h3>
+                    <h3>productos de nombre diseñador</h3>
                     <div class="contenedorProductDiseniadores">
-                        <div class="boxLamps">
-                            <img src="/img/Lamparas/lampara.jpg" alt="" />
-                            <p class="medidas">{medidas}</p>
-                            <div class="contenedorTextos">
-                                <p class="marca">{marca}</p>
-                                <p class="precio">${precioActual}</p>
-                                <p class="precioAntes">{precio}</p>
-                                <p class="creador">{creador}</p>
-                            </div>
-                        </div>
-                        <div class="boxLamps">
-                            <img src="/img/Lamparas/lampara.jpg" alt="" />
-                            <p class="medidas">{medidas}</p>
-                            <div class="contenedorTextos">
-                                <p class="marca">{marca}</p>
-                                <p class="precio">${precioActual}</p>
-                                <p class="precioAntes">{precio}</p>
-                                <p class="creador">{creador}</p>
-                            </div>
-                        </div>
-                        <div class="boxLamps">
-                            <img src="/img/Lamparas/lampara.jpg" alt="" />
-                            <p class="medidas">{medidas}</p>
-                            <div class="contenedorTextos">
-                                <p class="marca">{marca}</p>
-                                <p class="precio">${precioActual}</p>
-                                <p class="precioAntes">{precio}</p>
-                                <p class="creador">{creador}</p>
-                            </div>
-                        </div>
-                        <div class="boxLamps">
-                            <img src="/img/Lamparas/lampara.jpg" alt="" />
-                            <p class="medidas">{medidas}</p>
-                            <div class="contenedorTextos">
-                                <p class="marca">{marca}</p>
-                                <p class="precio">${precioActual}</p>
-                                <p class="precioAntes">{precio}</p>
-                                <p class="creador">{creador}</p>
-                            </div>
-                        </div>
+                        <%for(let i=0;i<=3;i++){%>
+                            <%-include('./partials/lampProduct.ejs')%>
+                        <%}%>
                     </div>
+                    <!-- segun cantidad de productos de diseñadores -->
                     <div class="contenedorProductDiseniadores contenedorOculto" id="contenedorOculto">
-                        <div class="boxLamps">
-                            <img src="/img/Lamparas/lampara.jpg" alt="" />
-                            <p class="medidas">{medidas}</p>
-                            <div class="contenedorTextos">
-                                <p class="marca">{marca}</p>
-                                <p class="precio">${precioActual}</p>
-                                <p class="precioAntes">{precio}</p>
-                                <p class="creador">{creador}</p>
-                            </div>
-                        </div>
-                        <div class="boxLamps">
-                            <img src="/img/Lamparas/lampara.jpg" alt="" />
-                            <p class="medidas">{medidas}</p>
-                            <div class="contenedorTextos">
-                                <p class="marca">{marca}</p>
-                                <p class="precio">${precioActual}</p>
-                                <p class="precioAntes">{precio}</p>
-                                <p class="creador">{creador}</p>
-                            </div>
-                        </div>
-                        <div class="boxLamps">
-                            <img src="/img/Lamparas/lampara.jpg" alt="" />
-                            <p class="medidas">{medidas}</p>
-                            <div class="contenedorTextos">
-                                <p class="marca">{marca}</p>
-                                <p class="precio">${precioActual}</p>
-                                <p class="precioAntes">{precio}</p>
-                                <p class="creador">{creador}</p>
-                            </div>
-                        </div>
+                        <%-include('./partials/lampProduct.ejs')%>
+                        <%-include('./partials/lampProduct.ejs')%>
+                        <%-include('./partials/lampProduct.ejs')%>
+                        
                     </div>
                 </div>
 
@@ -97,7 +35,7 @@
         </div>
 
 
-        <script src="/js/app.js"></script>
+        <script src="/js/main.js"></script>
         <script src="/js/carreras.js"></script>
 
         <%-include('../views/partials/footer.ejs') %>

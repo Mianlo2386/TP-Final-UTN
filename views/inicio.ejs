@@ -1,38 +1,3 @@
-<!--<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="./img/hero1.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="./img/lamp5.PNG" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="./img/lamp6.png" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-
-    <% if(login) { %>
-    <h1>El usuario contectado es: <strong><%= name %></strong></h1>
-    <a href="logout" class="a-logout">Salir</a>
-  <%} else {%>
-       <h1>><strong><%= name %></strong></h1>
-       <a href="login" class="a-login">Ir al Login</a>
-       <%}%>  
-  </div>-->
-
 <div class="inicio">  
   <div>
     <img src="resources/img/hero1.png" class="img-fluid" alt="...">
@@ -42,9 +7,11 @@
     <% if(login) { %>
       <p class="parrafoSession">El usuario contectado es: <strong><%= name %></strong></p>
       <a class="parrafoSession" href="logout" class="a-logout">Salir</a>
-    <%} else {%>
-         <p><strong><%= name %></strong></p>
-         <!--<a href="login" class="a-login">Ir al Login</a>-->
-         <%}%>  
-  </div>
+        <% if(carrito) { %>
+        <a href="carrito" class=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-handbag-fill" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 0-2 2v2H5V3a3 3 0 1 1 6 0v2h-1V3a2 2 0 0 0-2-2zM5 5H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11v1.5a.5.5 0 0 1-1 0V5H6v1.5a.5.5 0 0 1-1 0V5z"/>
+          </svg><strong><%= cantidad %></strong></a>       
+        <%}%>
+    <%}%>  
+      </div>
 </div>

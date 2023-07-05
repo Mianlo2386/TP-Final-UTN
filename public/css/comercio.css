@@ -1,0 +1,130 @@
+.comercio{
+    margin-top: 3.5rem;
+}
+
+.contenedorComercio{
+    margin-top: 2rem;
+    padding-bottom: 5rem;
+    border-top: 1px solid #999;
+}
+
+/* filtros */
+.aside{
+    width: 23%;
+    margin-top: 1rem;
+}
+
+.aside>p{
+    color: var(--ColorTextoSecundario);
+}
+
+/* precio */
+.filtroPrecio{
+    display: flex;
+    justify-content: space-between;
+}
+.filtroPrecio>input{
+    width: 35%;
+    padding: 8px 14px;
+    background-color: var(--ColorTextoPrincipal);
+    border: 1px solid #999;
+    outline-color: var(--ColorTextoSecundario);
+
+}
+.filtroPrecio>i{
+    font-size: 25px;
+}
+/* tipo lampara */
+.filtroTipos,
+.filtroDiseniadores,
+.filtroBateria,
+.filtroColores{
+    gap: .625rem;
+}
+
+/* cambio color inputs */
+/* input{
+    accent-color: var(--ColorTextoSecundario);
+  }
+
+input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+    border: 1px solid #999;
+} */
+
+
+.filtroCheckbox,.checkboxColor{
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+    appearance: none;
+    border: 1px solid #999;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+
+}
+.filtroCheckbox:checked {
+    cursor: pointer;
+    background-color: var(--ColorTextoSecundario);
+    border: 2px solid var(--ColorTextoSecundario);
+  }
+
+  .baterias{
+    margin-right: 1rem;
+  }
+
+  
+
+/* filtro segun colores */
+.checkboxColor.negro:checked {
+    background-color: #000;
+}
+
+.checkboxColor.gris:checked {
+    background-color: #999;
+}
+.checkboxColor.salmon:checked {
+    background-color: #daa0a0;
+}
+
+.checkboxColor.naranja:checked {
+    background-color: var(--ColorTextoSecundario);
+}
+
+.checkboxColor.verde:checked {
+    background-color: #27ad6c;
+}
+
+.checkboxColor.rosa:checked {
+    background-color: #f4227a;
+}
+
+.checkboxColor.violeta:checked {
+    background-color: #8928b0;
+}
+
+.checkboxColor.rojo:checked {
+    background-color: #f00000;
+}
+
+/* catalogo */
+.boxProductos{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+.boxProductos:nth-child(n) .boxLamps {
+    width: 32%;
+}
+
+.boxProductos> .boxLamps:nth-child(4){
+    width: 65%;
+}
+
+.boxProductos> .boxLamps:nth-child(9){
+    width: 100%;
+}

@@ -1,0 +1,46 @@
+<%-include('./partials/head.ejs') %>
+  <%-include('./partials/header.ejs') %>
+
+  <div class="container-fluid d-flex justify-content-center contenedorPrincipal contenedorBuscador">
+    <div class="container w-75 contenedorSecundario boxBuscador">
+        <div class="buscador">
+            <i class="bi bi-x-lg cerrarBuscador" id="cerrarBuscador"></i>
+            <input type="text" name="" id="buscador" placeholder="Ingresa tu búsqueda aquí">
+        </div>
+        <div class="resultadoLamps">
+            <p>productos (0)</p>
+            <div class="lamparasEncontradas">
+                <!-- aplicar logica busqueda -->
+                <%-include('./partials/lampProduct.ejs')%>
+            </div>
+
+            <div class="lamparasEncontradas resultadosOcultos"
+            id="resultadosOcultos"
+            >
+            <!-- aplicar logica busqueda -->
+                <%-include('./partials/lampProduct.ejs')%>
+            </div>
+
+            <button class="btnCarreras" id="btnBuscador" onclick="contenedorVisibleBuscador()">ver más</button>
+        </div>
+        <div class="resultadoDiseniadores">
+            <p>diseñadores (0)</p>
+            <div class="d-flex justify-content-between flex-wrap diseniadoresEncontrados">
+                <!-- aplicar logica busqueda -->
+                <div class="boxLamps ">
+                    <img src="/img/Lamparas/lampara.jpg" alt="">
+                    <div class="contenedorTextos">
+                        <p class="diseniador">diseñador</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="/js/main.js"></script>
+  <script src="/js/buscador.js"></script>
+  <%-include('./partials/footer.ejs') %>
