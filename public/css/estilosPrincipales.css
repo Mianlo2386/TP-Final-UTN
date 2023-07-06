@@ -98,6 +98,10 @@ p{
   width: 80%;
 }
 
+.descripcion{
+  display: none;
+}
+
 /* inputs registrar,login */
 .user,.password,.nombre{
   background-color: transparent;

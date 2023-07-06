@@ -4,7 +4,19 @@
         <div class="container-fluid d-flex justify-content-center contenedorPrincipal">
             <div class="container w-75 contenedorSecundario comercio">
                 <h1>nuestras luces</h1>
-                <div class="d-flex justify-content-end vistasProductos">
+                <div class="d-flex vistasProductos">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle btnOrden" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        id="dropdownLink">
+                            relevancia
+                        </a>
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">relevancia</a></li>
+                          <li><a class="dropdown-item" href="#">menor precio</a></li>
+                          <li><a class="dropdown-item" href="#">mayor precio</a></li>
+                        </ul>
+                      </div>
                     <i class="bi bi-grid-fill" id="grilla"></i>
                     <i class="bi bi-list-task" id="lista"></i>
                 </div>
@@ -126,7 +138,7 @@
                         </div>
 
                     </aside>
-                    <div class="boxProductos" id="productosContainer">
+                    <div class="boxProductos grilla" id="productosContainer">
                         <%for(let i=0;i<=8;i++){%>
                             <%-include('./partials/lampProduct.ejs')%>
                                 <%}%>
