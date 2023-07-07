@@ -25,3 +25,29 @@ listaButton.addEventListener('click', function () {
   productosContainer.classList.remove('grilla');
   productosContainer.classList.add('lista');
 });
+
+// range precio
+
+function slideOne() {
+  const sliderValue = document.getElementById("slider-1").value;
+  document.getElementById("inputMin").value = sliderValue;
+}
+
+function slideTwo() {
+  const sliderValue = document.getElementById("slider-2").value;
+  document.getElementById("inputMax").value = sliderValue;
+}
+
+document.getElementById("inputMin").addEventListener("input", function() {
+  const inputValue = document.getElementById("inputMin").value;
+  document.getElementById("slider-1").value = inputValue;
+});
+
+document.getElementById("inputMax").addEventListener("input", function() {
+  const inputValue = document.getElementById("inputMax").value;
+  document.getElementById("slider-2").value = inputValue;
+});
+
+
+
+

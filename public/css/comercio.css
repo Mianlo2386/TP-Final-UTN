@@ -2,8 +2,10 @@
     margin-top: 3.5rem;
 }
 
-.vistasProductos{
+.vistasProductos {
     justify-content: flex-end;
+    width: 100%;
+    gap: 1rem;
 }
 
 .contenedorComercio {
@@ -12,16 +14,12 @@
     border-top: 1px solid #999;
 }
 
-.vistasProductos {
-    width: 100%;
-    gap: 1rem;
-}
 
-.dropdown{
+.dropdown {
     width: 16%;
 }
 
-.btnOrden{
+.btnOrden {
     border: none;
 }
 
@@ -36,6 +34,11 @@
     color: var(--ColorTextoSecundario);
 }
 
+#grilla:active,
+#lista:focus-visible {
+    color: var(--ColorTextoSecundario);
+}
+
 /* filtros */
 .aside {
     width: 23%;
@@ -46,8 +49,6 @@
     color: var(--ColorTextoSecundario);
     font-weight: 600;
 }
-
-/* range */
 
 
 /* precio */
@@ -68,6 +69,53 @@
 .filtroPrecio>i {
     font-size: 25px;
 }
+
+/* range */
+.contenedorRange {
+    position: relative;
+}
+
+.doubleRange {
+    position: relative;
+    width: 100%;
+}
+
+
+input[type="range"] {
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.sliderRange {
+    width: 100%;
+    height: 2px;
+    background-color: #999;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-ms-track {
+    appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 1em;
+    height: 1em;
+    background-color: var(--ColorTextoSecundario);
+    border-radius: 10px;
+    pointer-events: auto;
+    margin-top: -.47rem;
+}
+
 
 /* tipo lampara */
 .filtroTipos,
@@ -95,10 +143,12 @@
     border: 2px solid var(--ColorTextoSecundario);
 }
 
+/* filtro segun tipo bateria */
 .baterias {
     margin-right: 1rem;
-}
+    accent-color: var(--ColorTextoSecundario);
 
+}
 
 
 /* filtro segun colores */
@@ -236,10 +286,11 @@
     font-size: 14px;
 }
 
-@media(max-width:900px){
-    .dropdown{
+@media(max-width:900px) {
+    .dropdown {
         width: 30%;
     }
+
     .boxProductos.grilla .boxLamps:nth-child(n) {
         width: 48%;
     }
@@ -248,7 +299,7 @@
         display: flex;
         flex-direction: column;
     }
-    
+
     .boxProductos.lista .boxLamps>img {
         width: 100%;
         margin-right: 0;
@@ -256,21 +307,45 @@
     }
 }
 
-@media(max-width:500px){
-    .vistasProductos{
+@media(max-width:500px) {
+    .vistasProductos {
         display: flex;
         justify-content: space-between;
     }
 
-    .dropdown{
+    .dropdown {
         width: 40%;
     }
-    .aside{
-        display: none;
+
+    .contenedorComercio {
+        display: flex;
+        flex-direction: column;
     }
-    .boxProductos{
+
+    .aside {
         width: 100%;
     }
+
+    .accordion-flush {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .accordion-item:first-child {
+        width: 100%;
+    }
+
+    .accordion-item {
+        width: 45%;
+    }
+
+    .boxProductos {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
     .boxProductos.grilla .boxLamps:nth-child(n) {
         width: 100%;
     }
