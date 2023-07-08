@@ -1,0 +1,14 @@
+
+<p>productos (<%=products.length%>)</p>
+<%products.forEach(product=>{%>
+  <div class="boxLamps">
+    <img src="/img/Lamparas/lampara.jpg" alt="" />
+    <p class="medidas"><%=product.medida%></p>
+    <div class="contenedorTextos">
+      <p class="marca"><%=product.nombre%></p>
+      <p class="precio"><%=product.precio%></p>
+      <p class="creador"><%=product.autor%></p>
+      <p class="descripcion"><%=product.descripcion%></p>
+    </div>
+</div>
+<%})%>

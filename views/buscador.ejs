@@ -5,21 +5,19 @@
     <div class="container w-75 contenedorSecundario boxBuscador">
         <div class="buscador">
             <i class="bi bi-x-lg cerrarBuscador" id="cerrarBuscador"></i>
-            <input type="text" name="" id="buscador" placeholder="Ingresa tu búsqueda aquí">
+            <input type="text" name="" id="buscador" placeholder="Ingresa tu búsqueda aquí" onkeyup="keyUpSearch(event)">
         </div>
         <div class="resultadoLamps">
-            <p>productos (0)</p>
-            <div class="lamparasEncontradas">
-                <!-- aplicar logica busqueda -->
-                <%-include('./partials/lampProduct.ejs')%>
+            
+            <div  id="resultadosLamps" class="lamparasEncontradas">
+            
             </div>
 
-            <div class="lamparasEncontradas resultadosOcultos"
+            <!-- <div class="lamparasEncontradas resultadosOcultos"
             id="resultadosOcultos"
             >
-            <!-- aplicar logica busqueda -->
-                <%-include('./partials/lampProduct.ejs')%>
-            </div>
+           
+            </div> -->
 
             <button class="btnCarreras" id="btnBuscador" onclick="contenedorVisibleBuscador()">ver más</button>
         </div>

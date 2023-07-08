@@ -17,8 +17,8 @@ class Mongo {
     console.log('connected')
   }
 
-  async getCollection(name) {
-    this.results = await this.db.collection(name).find({}).toArray();//me devuelve datos de una tabla 
+  async getCollection(name,filter={},limit=100) {
+    this.results = await this.db.collection(name).find(filter).limit(limit).toArray();//me devuelve datos de una tabla 
     return this.results
   }
 

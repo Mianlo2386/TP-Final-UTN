@@ -223,6 +223,33 @@ app.post('/auth', async (req, res) => {
     }
 })
 
+
+app.get('/products/search',async(req,res)=>{
+
+    const value=req.query.name
+
+    try {
+        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+
+        await mongo.connect()
+
+        const filter={nombre: { $regex: value , $options: 'i'}}
+
+        const products= await mongo.getCollection('productos', filter, 15)
+        
+
+
+        res.render('lampProduct.ejs', {products})
+
+    } catch (error) {
+
+        res.status(401).json({status:-1, message:'El producto no se encuentra'})
+        
+    }
+})
+
+
+
 // autenticar en paginas
 
 app.get('/', (req, res) => {
@@ -253,3 +280,4 @@ app.get('*/',(req,res)=>{
 app.listen(3050, () => {
     console.log('Servidor ejecutandose')
 })
+
