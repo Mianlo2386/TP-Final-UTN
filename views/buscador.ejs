@@ -10,7 +10,9 @@
         <div class="resultadoLamps">
             
             <div  id="resultadosLamps" class="lamparasEncontradas">
-            
+                <%for(let i=0;i<=3;i++){%>
+                    <%- include('./lampProduct.ejs', { product: products[i] }) %>
+                        <%}%>
             </div>
 
             <!-- <div class="lamparasEncontradas resultadosOcultos"

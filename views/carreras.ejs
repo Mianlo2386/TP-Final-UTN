@@ -1,5 +1,5 @@
 <%-include('./partials/head.ejs') %>
-<%-include('./partials/header.ejs') %>
+    <%-include('./partials/header.ejs') %>
 
         <div class="container-fluid d-flex justify-content-center contenedorPrincipal" id="inicio">
             <div class="container w-75 d-flex contenedorSecundario carreras">
@@ -16,20 +16,20 @@
                     <h3>productos de nombre diseñador</h3>
                     <div class="contenedorProductDiseniadores">
                         <%for(let i=0;i<=3;i++){%>
-                            <%-include('./partials/lampProduct.ejs')%>
-                        <%}%>
+                            <%- include('./lampProduct.ejs', { product: products[i] }) %>
+                                <%}%>
                     </div>
                     <!-- segun cantidad de productos de diseñadores -->
                     <div class="contenedorProductDiseniadores contenedorOculto" id="contenedorOculto">
-                        <%-include('./partials/lampProduct.ejs')%>
-                        <%-include('./partials/lampProduct.ejs')%>
-                        <%-include('./partials/lampProduct.ejs')%>
-                        
+                        <%for(let i=0;i<=3;i++){%>
+                            <%- include('./lampProduct.ejs', { product: products[i] }) %>
+                                <%}%>
+
                     </div>
                 </div>
 
                 <button class="btnCarreras" id="btnCarreras" onclick="contenedorVisible()">ver más</button>
-                
+
 
             </div>
         </div>
@@ -38,4 +38,4 @@
         <script src="/js/main.js"></script>
         <script src="/js/carreras.js"></script>
 
-        <%-include('../views/partials/footer.ejs') %>
+        <%-include('./partials/footer.ejs') %>
