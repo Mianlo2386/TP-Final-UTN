@@ -45,9 +45,7 @@ app.get('/login', (req, res) => {
 
 // registracion
 
-// app.get('/', (req, res) => {
-//         res.render('home')
-//  })
+
 
 app.get('/registrar', (req, res) => {
     res.render('registrar')
@@ -125,9 +123,20 @@ app.get('/diseniadores', (req, res) => {
     res.render('diseniadores')
 })
 
-app.get('/comercio', (req, res) => {
-    res.render('comercio')
-})
+app.get('/comercio', async (req, res) => {
+    try {
+      const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE);
+      await mongo.connect();
+  
+      const products = await mongo.getCollection('productos');
+  
+      res.render('comercio', { products });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ status: -1, message: 'Error al obtener los productos' });
+    }
+  });
+  
 
 // autenticacion
 
@@ -224,47 +233,61 @@ app.post('/auth', async (req, res) => {
 })
 
 
-app.get('/products/search',async(req,res)=>{
+// app.get('/products/search',async(req,res)=>{
 
-    const value=req.query.name
+//     const value=req.query.name
 
-    try {
-        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+//     try {
+//         const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
 
-        await mongo.connect()
+//         await mongo.connect()
 
-        const filter={nombre: { $regex: value , $options: 'i'}}
+//         const filter={nombre: { $regex: value , $options: 'i'}}
 
-        const products= await mongo.getCollection('productos', filter, 15)
+//         const products= await mongo.getCollection('productos', filter, 15)
         
 
 
-        res.render('lampProduct.ejs', {products})
+//         res.render('lampProduct.ejs', {products})
 
-    } catch (error) {
+//     } catch (error) {
 
-        res.status(401).json({status:-1, message:'El producto no se encuentra'})
+//         res.status(401).json({status:-1, message:'El producto no se encuentra'})
         
-    }
-})
+//     }
+// })
 
 
 
 // autenticar en paginas
 
-app.get('/', (req, res) => {
-    if (req.session.loggedin) {
-        res.render('home', {
-            login: true,
-            name: req.session.name
-        });
-    } else {
-        res.render('home', {
-            login: false,
-            name:req.session.name
-        })
+app.get('/', async (req, res) => {
+    try {
+        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE);
+
+        await mongo.connect();
+
+        const products = await mongo.getCollection('productos');
+        
+        if (req.session.loggedin) {
+            res.render('home', {
+                login: true,
+                name: req.session.name,
+                products: products
+            });
+        } else {
+            res.render('home', {
+                login: false,
+                name: req.session.name,
+                products: products
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ status: -1, message: 'Hubo un error interno en el servidor' });
     }
-})
+});
+
 
 // logout
 app.get('/logout', (req, res) => {

@@ -147,7 +147,7 @@
                     </aside>
                     <div class="boxProductos grilla" id="productosContainer">
                         <%for(let i=0;i<=8;i++){%>
-                            <%-include('./partials/lampProduct.ejs')%>
+                            <%- include('./lampProduct.ejs', { product: products[i] }) %>
                                 <%}%>
 
                     </div>
