@@ -8,4 +8,12 @@
     <p class="creador"><%=product.autor%></p>
     <p class="descripcion"><%=product.descripcion%></p>
   </div>
+  <form action="agregar" method="post">
+    <input type="hidden" name="idProducto" value="<%= product.idProducto %>">
+    <input type="hidden" name="nombre" value="<%= product.nombre %>">
+    <input type="hidden" name="precio" value="<%= product.precio %>">
+    <input type="hidden" name="imagen" value="<%= product.imagen %>">
+    <input type="hidden" name="cantidad" value="1">
+    <input class="btnCarrito" type="submit" value="Comprar">                        
+  </form>
 </div>
