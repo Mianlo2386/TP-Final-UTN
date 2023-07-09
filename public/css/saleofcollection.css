@@ -2,22 +2,21 @@
     flex-wrap: wrap;
     width: 100%;
     height: auto;
-    padding-top: 2%;
-    
+    padding-top: 1.25rem;
 }
 .bsellersItem{
     width: 24%;
-    margin-bottom: 20px;
+    margin-bottom: .625rem;
     cursor: pointer;
 }
-
-.itemVacio{
+.bsellersItem:nth-child(6){
     visibility: hidden;
 }
 
+
 @media(max-width:900px){
     .contenedorBSellers{
-        padding-top: 5%;
+        padding-top: 5rem;
     }
     .bsellersItem{
         width: 47.7%;
@@ -25,10 +24,15 @@
     .bsellersItem .precio{
         text-align: end;
     }
-    .itemVacio{
+    .bsellersItem:nth-child(6){
         display: none;
     }
-    .lastItem{
+    .bsellersItem:last-child{
+        width: 100%;
+    }
+}
+@media(max-width:500px){
+    .bsellersItem{
         width: 100%;
     }
 }

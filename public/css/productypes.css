@@ -1,0 +1,80 @@
+.contenedorProductos {
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin-top: 1.25rem;
+}
+
+.boxLeft {
+    width: 40%;
+    height: 21.875rem;
+    margin-right: 8%;
+    cursor: pointer;
+}
+
+.boxLeft img {
+    object-fit: cover;
+}
+
+.boxRight {
+    width: 24%;
+    height: 21.875rem;
+    cursor: pointer;
+}
+
+.boxRight img {
+    height: 15.625rem;
+    object-fit: cover;
+}
+
+.tipoLampara,
+.empotradas {
+    cursor: pointer;
+}
+
+.boxLamps {
+    overflow: hidden;
+}
+
+.contenedorProductos .boxLamps img {
+    transition: transform 0.3s;
+}
+
+.contenedorProductos .boxLamps img:hover {
+    transform: scale(1.018);
+}
+
+.contenedorProductos .marca {
+    padding-top: .5rem;
+}
+
+
+@media(max-width:768px) {
+    .boxLeft {
+        margin-right: 0;
+    }
+
+    .boxLeft,
+    .boxRight {
+        width: 47.7%;
+        margin-bottom: 1.2rem;
+    }
+
+    .boxRight img {
+        height: 18.75rem;
+    }
+
+    .empotradas {
+        width: 100%;
+    }
+}
+
+@media(max-width:500px) {
+
+    .boxLeft,
+    .boxRight {
+        width: 100%;
+        margin-bottom: 2.2rem;
+    }
+
+}

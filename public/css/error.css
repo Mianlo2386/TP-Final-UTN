@@ -8,28 +8,29 @@
 
 .contenedorError{
     flex-direction: column;
-    padding-top: 5%;
+    padding-top: 4rem;
 }
 .textoError{
-    margin-bottom: 13%;
+    padding-bottom: 13%;
+    height: auto;
 }
 
-.textoError h1{
+.textoError>h1{
+    color: var(--ColorTextoPrincipal);
     font-size: 35px;
-    margin-bottom: 2%;
+    margin-bottom: 1.25rem;
 }
 
-.textoError p{
+.textoError>p{
+    color: var(--ColorTextoPrincipal);
     font-size: 14px;
     width: 30%;
-    margin-bottom: 30px;
-}
-.textoError h1,p{
-    color: var(--ColorTextoPrincipal);
+    margin-bottom: 1.875rem;
 }
 
 .copyrigthError{
     font-size: 10px;
+    color: var(--ColorTextoPrincipal);
 }
 
 @media(max-width:900px){
@@ -40,6 +41,6 @@
 
 @media(max-width:400px){
     .contenedorError{
-        padding-top: 25%;
+        padding-top: 5.5rem;
     }
 }

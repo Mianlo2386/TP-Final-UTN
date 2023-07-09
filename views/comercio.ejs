@@ -1,0 +1,160 @@
+<%-include('./partials/head.ejs') %>
+    <%-include('./partials/header.ejs') %>
+
+        <div class="container-fluid d-flex justify-content-center contenedorPrincipal">
+            <div class="container w-75 contenedorSecundario comercio">
+                <h1>nuestras luces</h1>
+                <div class="d-flex vistasProductos">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle btnOrden" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="dropdownLink">
+                            relevancia
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">relevancia</a></li>
+                            <li><a class="dropdown-item" href="#">menor precio</a></li>
+                            <li><a class="dropdown-item" href="#">mayor precio</a></li>
+                        </ul>
+                    </div>
+                    <i class="bi bi-grid-fill" id="grilla"></i>
+                    <i class="bi bi-list-task" id="lista"></i>
+                </div>
+                <div class="d-flex justify-content-between contenedorComercio">
+                    <aside class="aside">
+                        <a href="">Restablecer todos los filtros</a href="">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item mb-3" >
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        precio
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body filtroPrecio">
+                                        <input type="text" name="" id="inputMin">
+                                        <i class="bi bi-dash-lg"></i>
+                                        <input type="text" name="" id="inputMax">
+                                    </div>
+                                    <div class="slider-track contenedorRange">
+                                        <div class="doubleRange">
+                                            <div class="sliderRange"></div>
+                                            <input type="range" min="0" max="100" value="30" id="slider-1"
+                                                oninput="slideOne()">
+                                            <input type="range" min="0" max="100" value="70" id="slider-2"
+                                                oninput="slideTwo()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3" >
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        tipo de producto
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body d-flex flex-wrap filtroTipos">
+                                        <div class="d-flex justify-content-between">
+                                            <input type="checkbox" name="" id="" class="filtroCheckbox">
+                                            <label for="checkbox">colgantes</label>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <input type="checkbox" name="" id="" class="filtroCheckbox">
+                                            <label for="checkbox">lámparas portátiles de mesa</label>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <input type="checkbox" name="" id="" class="filtroCheckbox">
+                                            <label for="checkbox">lámparas empotradas</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3" >
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        diseñador
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body d-flex flex-wrap filtroDiseniadores">
+                                        <%for(let i=0;i<=4;i++){%>
+                                            <div class="d-flex justify-content-between">
+                                                <input type="checkbox" name="" id="" class="filtroCheckbox">
+                                                <label for="checkbox">nombre diseñador</label>
+                                            </div>
+                                            <% }%>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3" >
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        batería
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body d-flex flex-column filtroBateria">
+                                        <div>
+                                            <input type="radio" name="baterias" id="baterias" class="baterias">
+                                            <label for="radio">todas</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="baterias" id="baterias" class="baterias">
+                                            <label for="radio">recargables</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="baterias" id="baterias" class="baterias">
+                                            <label for="radio">reemplazables</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3" >
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        color
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body d-flex flex-wrap filtroColores">
+                                        <input type="checkbox" name="negro" id="" class="checkboxColor negro" />
+                                        <input type="checkbox" name="gris" id="" class="checkboxColor gris" />
+                                        <input type="checkbox" name="salmon" id="" class="checkboxColor salmon" />
+                                        <input type="checkbox" name="naranja" id="" class="checkboxColor naranja" />
+                                        <input type="checkbox" name="verde" id="" class="checkboxColor verde" />
+                                        <input type="checkbox" name="rosa" id="" class="checkboxColor rosa" />
+                                        <input type="checkbox" name="violeta" id="" class="checkboxColor violeta" />
+                                        <input type="checkbox" name="rojo" id="" class="checkboxColor rojo" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </aside>
+                    <div class="boxProductos grilla" id="productosContainer">
+                        <%for(let i=0;i<=8;i++){%>
+                            <%- include('./lampProduct.ejs', { product: products[i] }) %>
+                                <%}%>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/main.js"></script>
+        <script src="/js/comercio.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,43 @@
+.registrar{
+    width: 40%;
+    height: auto;
+    align-items: center;
+    margin-top: 1.875rem;
+}
+
+.btnRegistrar{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.btnGuardar{
+    background-color: var(--ColorTextoSecundario);
+    border: 1px solid var(--ColorTextoSecundario);
+    color: var(--ColorTextoPrincipal);
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btnGuardar:hover{
+    background-color: rgb(255, 160, 0);
+    border: 1px solid rgb(255, 160, 0);
+    color: var(--ColorTextoPrincipal);
+}
+
+.btnCancelar{
+    width: 100%;
+    color: var(--ColorFooter);
+    background-color: transparent;
+    border: 1px solid var(--ColorFooter);
+}
+
+.btnCancelar:hover{
+    color: var(--ColorTextoPrincipal);
+    border: 1px solid #000;
+    background-color: #000;
+}
+@media(max-width:768px){
+    .registrar{
+        width: 75%;
+    }
+}

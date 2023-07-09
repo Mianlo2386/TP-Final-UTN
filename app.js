@@ -1,11 +1,9 @@
-
-
 // invocamos a express
 const express = require('express')
 const app = express()
 
 //invocamos a express-ejs-layouts
-const expressLayouts = require('express-ejs-layouts')
+// const expressLayouts = require('express-ejs-layouts')
 
 // seteamos urlencoded para capturar los datos del formulario
 app.use(express.urlencoded({ extended: false }));
@@ -23,7 +21,7 @@ app.use('/resources', express.static(__dirname + 'public'));
 
 // establecer el motor de plantillas ejs - 
 app.set('view engine', 'ejs')
-app.use(expressLayouts)
+// app.use(expressLayouts)
 
 // invocamos a bcryptjs
 const bcryptjs = require('bcryptjs');
@@ -47,9 +45,7 @@ app.get('/login', (req, res) => {
 
 // registracion
 
-// app.get('/', (req, res) => {
-//         res.render('home')
-//  })
+
 
 app.get('/registrar', (req, res) => {
     res.render('registrar')
@@ -59,9 +55,15 @@ app.get('/carreras',(req,res) => {
     res.render('carreras')
 })
 
-// app.get('*/',(req,res)=>{
-//     res.render('error')
-// })
+app.get('/producto',(req,res) => {
+    res.render('paginaProducto')
+})
+
+app.get('/buscador',(req,res) => {
+    res.render('buscador')
+})
+
+
 
 app.post('/registrar', async (req, res) => {
     const user = req.body.user;
@@ -117,13 +119,24 @@ app.get('/contacto', (req, res) => {
     res.render('contacto')
 })
 
-app.get('/designer', (req, res) => {
-    res.render('designer')
+app.get('/diseniadores', (req, res) => {
+    res.render('diseniadores')
 })
 
-app.get('/shop', (req, res) => {
-    res.render('shop')
-})
+app.get('/comercio', async (req, res) => {
+    try {
+      const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE);
+      await mongo.connect();
+  
+      const products = await mongo.getCollection('productos');
+  
+      res.render('comercio', { products });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ status: -1, message: 'Error al obtener los productos' });
+    }
+  });
+  
 
 // autenticacion
 
@@ -219,21 +232,62 @@ app.post('/auth', async (req, res) => {
     }
 })
 
+
+// app.get('/products/search',async(req,res)=>{
+
+//     const value=req.query.name
+
+//     try {
+//         const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+
+//         await mongo.connect()
+
+//         const filter={nombre: { $regex: value , $options: 'i'}}
+
+//         const products= await mongo.getCollection('productos', filter, 15)
+        
+
+
+//         res.render('lampProduct.ejs', {products})
+
+//     } catch (error) {
+
+//         res.status(401).json({status:-1, message:'El producto no se encuentra'})
+        
+//     }
+// })
+
+
+
 // autenticar en paginas
 
-app.get('/', (req, res) => {
-    if (req.session.loggedin) {
-        res.render('home', {
-            login: true,
-            name: req.session.name
-        });
-    } else {
-        res.render('home', {
-            login: false,
-            name: 'Debe iniciar session'
-        })
+app.get('/', async (req, res) => {
+    try {
+        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE);
+
+        await mongo.connect();
+
+        const products = await mongo.getCollection('productos');
+        
+        if (req.session.loggedin) {
+            res.render('home', {
+                login: true,
+                name: req.session.name,
+                products: products
+            });
+        } else {
+            res.render('home', {
+                login: false,
+                name: req.session.name,
+                products: products
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ status: -1, message: 'Hubo un error interno en el servidor' });
     }
-})
+});
+
 
 // logout
 app.get('/logout', (req, res) => {
@@ -242,6 +296,11 @@ app.get('/logout', (req, res) => {
     })
 })
 
+app.get('*/',(req,res)=>{
+    res.render('error')
+})
+
 app.listen(3050, () => {
     console.log('Servidor ejecutandose')
 })
+

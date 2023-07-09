@@ -1,0 +1,24 @@
+<%-include('./partials/head.ejs') %>
+<%-include('./partials/header.ejs') %>
+
+<div class="container-fluid d-flex justify-content-center contenedorPrincipal">
+    <div class="container w-75 contenedorSecundario diseniadores">
+        <h1>nuestros diseñadores</h1>
+        <div class="d-flex justify-content-between contenedorDiseniadores">
+                <!--hacer for each de diseniadores  -->
+            <%for(let i=0; i<=12; i++){ %>
+                <div class="boxLamps boxDiseniador">
+                    <img src="/img/Lamparas/lampara.jpg" alt="">
+                    <div class="contenedorTextos">
+                        <p class="diseniador">diseñador</p>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/main.js"></script>
+<script src="/js/header.js"></script>
+

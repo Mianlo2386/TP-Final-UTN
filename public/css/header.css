@@ -64,14 +64,16 @@
     list-style: none;
 }
 
+.iconUser{
+    font-size: 18px;
+}
+
 .hamburguesa {
     display: none;
 }
 
 /* click hamburguesa */
-.headerBg{
-    background-color: var(--ColorTextoPrincipal);
-}
+
 
 .cambioTextoColor{
     color: #000;

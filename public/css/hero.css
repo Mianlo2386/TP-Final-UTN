@@ -159,12 +159,11 @@
     font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 12px 30px;
-    margin-top: 12px;
+    padding: .75rem 1.875rem;
+    margin-top: .75rem;
     color: #000;
     background-color: var(--ColorTextoPrincipal);
     border: none;
-
 }
 
 .btnCatalog:hover {

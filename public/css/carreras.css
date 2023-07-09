@@ -1,12 +1,8 @@
 .carreras {
     margin: 3.5rem 0;
-    color: #000;
     flex-direction: column;
 }
 
-.carreras h3{
-    font-weight: bold;
-}
 
 .contenedorCarrera {
     display: flex;
@@ -35,14 +31,14 @@
 }
 
 .productosDiseniador{
-    padding-top: 8%;
+    padding-top: 5rem;
 }
 
 .contenedorProductDiseniadores{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 2% 0;
+    padding: 1.25rem 0;
 }
 
 .contenedorProductDiseniadores .boxLamps{
@@ -79,7 +75,7 @@
 
 @media(max-width:768px){
     .carreras{
-        margin-bottom: 8%;
+        margin-bottom: 3rem
     }
     .contenedorCarrera img,.textoCarrera{
         width: 100%;

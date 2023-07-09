@@ -1,0 +1,47 @@
+.login {
+    width: 40%;
+    height: auto;
+    align-items: center;
+    margin-top: 1.875rem;
+}
+
+.btnLogin{
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    margin-top: 12px;
+    color: var(--ColorTextoPrincipal);
+    background-color: var(--ColorTextoSecundario);
+    border: 1px solid var(--ColorTextoSecundario);
+    border-radius: 6px;
+}
+
+
+.btnLogin:hover{
+    background-color: rgb(255, 160, 0);
+}
+
+.btnRegister{
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    margin-top: 12px;
+    color: var(--ColorFooter);
+    background-color: transparent;
+    border: 1px solid var(--ColorFooter);
+    border-radius: 6px;
+}
+
+.btnRegister:hover{
+    color: var(--ColorTextoPrincipal);
+    border: 1px solid #000;
+    background-color: #000;
+}
+
+@media(max-width:768px){
+    .login{
+        width: 75%;
+    }
+}
