@@ -292,20 +292,27 @@ app.get('/',async (req, res) => {
     const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
 
         await mongo.connect()
-
-        const products= await mongo.getCollection('productos', {}, 5)
-        
+        const products= await mongo.getCollection('productos', {}, 15)
+        const products_bestSellers= await mongo.getCollection('productos', {}, 4)
+        const products_saleOfCollection= await mongo.getCollection('productos', {}, 7)
+        const products_bestDesigners= await mongo.getCollection('productos', {}, 2)
 
     if (req.session.loggedin) {
         res.render('home', {
             login: true,
             name: req.session.name,
+            products_bestSellers,
+            products_saleOfCollection,
+            products_bestDesigners,
             products
         });
     } else {
         res.render('home', {
             login: false,
             name:req.session.name,
+            products_bestSellers,
+            products_saleOfCollection,
+            products_bestDesigners,
             products
         })
     }
