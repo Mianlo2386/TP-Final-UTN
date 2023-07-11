@@ -45,25 +45,53 @@ app.get('/login', (req, res) => {
 
 // registracion
 
-// app.get('/', (req, res) => {
-//         res.render('home')
-//  })
+
 
 app.get('/registrar', (req, res) => {
     res.render('registrar')
 })
 
-app.get('/carreras',(req,res) => {
-    res.render('carreras')
+app.get('/carreras', async (req, res) => {
+    try {
+        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE);
+        await mongo.connect();
+
+        const products = await mongo.getCollection('productos');
+
+        res.render('carreras', { products });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ status: -1, message: 'Error al obtener los productos' });
+    }
+});
+
+app.get('/producto',async (req, res) => {
+    try {
+        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE);
+        await mongo.connect();
+
+        const products = await mongo.getCollection('productos');
+
+        res.render('paginaProducto', { products });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ status: -1, message: 'Error al obtener los productos' });
+    }
 })
 
-app.get('/producto',(req,res) => {
-    res.render('paginaProducto')
-})
+app.get('/buscador', async (req, res) => {
+    try {
+        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE);
+        await mongo.connect();
 
-app.get('/buscador',(req,res) => {
-    res.render('buscador')
-})
+        const products = await mongo.getCollection('productos');
+
+        res.render('buscador', { products });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ status: -1, message: 'Error al obtener los productos' });
+    }
+});
 
 
 
@@ -153,8 +181,8 @@ app.post('/auth', async (req, res) => {
 
             const results = await mongo.getCollection('users')
             const found = results.find(async (el) => {
-                let match = await bcryptjs.compare(pass,el.pass)
-                return el.user == user &&  match
+                let match = await bcryptjs.compare(pass, el.pass)
+                return el.user == user && match
 
             })
             if (found) {
@@ -185,7 +213,7 @@ app.post('/auth', async (req, res) => {
 
                 })
 
-        
+
             }
 
         } catch (error) {
@@ -231,29 +259,29 @@ app.post('/auth', async (req, res) => {
 })
 
 
-app.get('/products/search',async(req,res)=>{
+// app.get('/products/search',async(req,res)=>{
 
-    const value=req.query.name
+//     const value=req.query.name
 
-    try {
-        const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+//     try {
+//         const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
 
-        await mongo.connect()
+//         await mongo.connect()
 
-        const filter={nombre: { $regex: value , $options: 'i'}}
+//         const filter={nombre: { $regex: value , $options: 'i'}}
 
-        const products= await mongo.getCollection('productos', filter, 15)
-        
+//         const products= await mongo.getCollection('productos', filter, 15)
 
 
-        res.render('lampProduct.ejs', {products})
 
-    } catch (error) {
+//         res.render('lampProduct.ejs', {products})
 
-        res.status(401).json({status:-1, message:'El producto no se encuentra'})
-        
-    }
-})
+//     } catch (error) {
+
+//         res.status(401).json({status:-1, message:'El producto no se encuentra'})
+
+//     }
+// })
 
 
 
@@ -281,7 +309,8 @@ app.get('/',async (req, res) => {
             products
         })
     }
-})
+});
+
 
 // logout
 app.get('/logout', (req, res) => {
@@ -290,7 +319,7 @@ app.get('/logout', (req, res) => {
     })
 })
 
-app.get('*/',(req,res)=>{
+app.get('*/', (req, res) => {
     res.render('error')
 })
 

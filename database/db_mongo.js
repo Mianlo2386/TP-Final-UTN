@@ -1,6 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectId;
-
+// Invocamos a dotenv
+require("dotenv/config");
+const url = process.env.API_URL;
+const dbName = process.env.DBNAME;
 
 class Mongo {
 

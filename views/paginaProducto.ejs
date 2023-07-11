@@ -85,9 +85,9 @@
           <h3>productos relacionados</h3>
           <div class="d-flex justify-content-between boxRelacionados">
             <!-- mostrar solo 4 productos relacionados -->
-            <%for(let i=1;i<=4;i++){%>
-              <%-include('./partials/lampProduct.ejs')%>
-            <%}%>
+            <%for(let i=0;i<=3;i++){%>
+              <%- include('./lampProduct.ejs', { product: products[i] }) %>
+                  <%}%>
         </div>
         </div>
       </div>
