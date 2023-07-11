@@ -1,7 +1,7 @@
 <div class="<%= locals.clase ? clase : ''%>">
-<p>productos (<%=products.length%>)</p>
-<%products.forEach(product=>{%>
-    <div class="boxLamps">
+  <p>productos (<%=products.length%>)</p>
+  <%products.forEach(product=>{%>
+  <div class="boxLamps">
     <img src="/img/Lamparas/lampara.jpg" alt="" />
     <p class="medidas"><%=product.medida%></p>
     <div class="contenedorTextos">
@@ -16,7 +16,8 @@
       <input type="hidden" name="precio" value="<%= product.precio %>">
       <input type="hidden" name="imagen" value="<%= product.imagen %>">
       <input type="hidden" name="cantidad" value="1">
-      <input class="btnCarrito" type="submit" value="Comprar">                        
+      <input class="btnCarrito" type="submit" value="Comprar">
     </form>
   </div>
-<%})%>
+  <%})%>
+</div>
