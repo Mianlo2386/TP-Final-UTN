@@ -125,8 +125,15 @@ app.get('/diseniadores', (req, res) => {
     res.render('diseniadores')
 })
 
-app.get('/comercio', (req, res) => {
-    res.render('comercio')
+app.get('/comercio',async (req, res) => {
+
+    const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+
+    await mongo.connect()
+
+    const products= await mongo.getCollection('productos')
+    
+    res.render('comercio',{products})
 })
 
 // autenticacion
@@ -252,16 +259,26 @@ app.get('/products/search',async(req,res)=>{
 
 // autenticar en paginas
 
-app.get('/', (req, res) => {
+app.get('/',async (req, res) => {
+
+    const mongo = new mongoDB(process.env.DB_HOST, process.env.DB_DATABASE)
+
+        await mongo.connect()
+
+        const products= await mongo.getCollection('productos', {}, 5)
+        
+
     if (req.session.loggedin) {
         res.render('home', {
             login: true,
-            name: req.session.name
+            name: req.session.name,
+            products
         });
     } else {
         res.render('home', {
             login: false,
-            name:req.session.name
+            name:req.session.name,
+            products
         })
     }
 })

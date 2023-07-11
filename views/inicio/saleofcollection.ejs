@@ -2,11 +2,7 @@
     <div class="container w-75 contenedorSecundario">
         <h1>venta de colección</h1>
         <div class="d-flex justify-content-between contenedorBSellers">
-                    <%for(let i=0; i<=7; i++){ %>
-                    <div class="bsellersItem">
-                        <%-include('../partials/lampProduct.ejs')%>
-                    </div>
-                    <% }%>
+                        <%-include('../lampProduct.ejs',{products, clase:'bsellersItem'})%>
             
         </div>
     </div>

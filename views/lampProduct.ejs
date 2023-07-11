@@ -1,7 +1,7 @@
-
+<div class="<%= locals.clase ? clase : ''%>">
 <p>productos (<%=products.length%>)</p>
 <%products.forEach(product=>{%>
-  <div class="boxLamps">
+    <div class="boxLamps">
     <img src="/img/Lamparas/lampara.jpg" alt="" />
     <p class="medidas"><%=product.medida%></p>
     <div class="contenedorTextos">
@@ -10,5 +10,6 @@
       <p class="creador"><%=product.autor%></p>
       <p class="descripcion"><%=product.descripcion%></p>
     </div>
-</div>
+  </div>
 <%})%>
+</div>
